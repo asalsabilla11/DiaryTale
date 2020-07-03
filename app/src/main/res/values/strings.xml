@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">DiaryTale</string>
+    <string name="sleep">Sleep</string>
+    <string name="drink">Drink</string>
 </resources>

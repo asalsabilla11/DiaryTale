@@ -23,4 +23,97 @@
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/nav_menu"/>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageHeader"
+            android:layout_width="match_parent"
+            android:layout_height="260dp"
+            android:contentDescription="@string/app_name"
+            app:layout_constraintTop_toTopOf="parent"
+            android:scaleType="centerCrop"
+            android:src="@color/colorText"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/carddrink"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="10dp"
+            app:cardCornerRadius="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/cardsleep"
+            app:layout_constraintTop_toBottomOf="@+id/imageHeader"
+            app:layout_constraintStart_toStartOf="parent"
+            app:cardBackgroundColor="@color/colorgrey">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_drink"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/drink"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+        </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardsleep"
+            android:layout_width="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:cardBackgroundColor="@color/colorgrey"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="25dp"
+            app:cardCornerRadius="8dp"
+            app:layout_constraintStart_toEndOf="@+id/carddrink"
+            app:layout_constraintTop_toBottomOf="@+id/imageHeader"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="15dp"
+            tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_sleep"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/sleep"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+        </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+       
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </androidx.drawerlayout.widget.DrawerLayout>
