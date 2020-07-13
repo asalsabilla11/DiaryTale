@@ -15,7 +15,7 @@ class NoteViewModel(app: Application): AndroidViewModel(app) {
 
     fun getAllNote() = noteRepo.getAllNote()
 
-    fun deleteByID(groupID: String) = noteRepo.deletByID(groupID)
+    fun deleteByID(noteID: String) = noteRepo.deletByID(noteID)
     fun deletAllNote() = noteRepo.getAllNote()
 
 }

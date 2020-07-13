@@ -11,7 +11,7 @@ import com.sabil.diarytale.room.notes.NoteEntity
 import com.sabil.diarytale.room.notes.NoteViewModel
 import kotlinx.android.synthetic.main.activity_note.*
 
-class NoteActivity : AppCompatActivity() {
+class NoteActivity : AppCompatActivity(), NoteAdapter.ItemClickListener {
 
     private lateinit var mNoteViewModel: NoteViewModel
     private lateinit var mNoteAdapter: NoteAdapter
@@ -38,7 +38,7 @@ class NoteActivity : AppCompatActivity() {
         mNoteViewModel.getAllNote()?.observe(this,Observer<List<NoteEntity>>{
             rv_notes_note.apply {
                 layoutManager = GridLayoutManager(this@NoteActivity,2)
-                mNoteAdapter.noteAdapter(it)
+                mNoteAdapter.noteAdapter(it,this@NoteActivity)
                 adapter = mNoteAdapter
             }
         })
@@ -47,6 +47,14 @@ class NoteActivity : AppCompatActivity() {
     override fun onBackPressed() {
         val intent = Intent(this,MainActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+        startActivity(intent)
+    }
+
+    override fun itemClickListener(noteEntity: NoteEntity, position: Int) {
+        val intent = Intent(this,ViewNoteActivity::class.java)
+        intent.putExtra("NOTE_ID",noteEntity.noteID)
+        intent.putExtra("NOTE_TITLE",noteEntity.noteTitle)
+        intent.putExtra("NOTE_ISI",noteEntity.noteIsi)
         startActivity(intent)
     }
 }

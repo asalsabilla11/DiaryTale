@@ -8,10 +8,10 @@ import com.sabil.diarytale.room.notes.NoteEntity
 @Dao
 interface NoteDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun upsert(noteEntity: NoteEntity)
+    suspend fun upsert(noteEntity: NoteEntity)
 
     @Query("delete from notes where noteID = :noteID")
-    fun deleteByID(noteID: String)
+    suspend fun deleteByID(noteID: String)
     @Query("delete from notes")
     fun deleteAllData()
 

@@ -11,19 +11,25 @@ import kotlinx.android.synthetic.main.note_layout_rv.view.*
 class NoteAdapter: RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
 
     private lateinit var listNote: List<NoteEntity>
+    private lateinit var mClickListener: ItemClickListener
 
     class ViewHolder(v: View): RecyclerView.ViewHolder(v){
         val tvTitle = v.tv_titleNote_noteLayout
         val tvIsi = v.tv_isiNote_noteLayout
 
-        fun bindViewHolder(noteEntity: NoteEntity){
+        fun bindViewHolder(noteEntity: NoteEntity,clickListener: ItemClickListener,position: Int){
             tvTitle.text = noteEntity.noteTitle
             tvIsi.text = noteEntity.noteIsi
+
+            itemView.setOnClickListener {
+                clickListener.itemClickListener(noteEntity,position)
+            }
         }
     }
 
-    fun noteAdapter(listNote: List<NoteEntity>){
+    fun noteAdapter(listNote: List<NoteEntity>,clickListener: ItemClickListener){
         this.listNote = listNote
+        mClickListener = clickListener
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -37,6 +43,10 @@ class NoteAdapter: RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bindViewHolder(listNote.get(position))
+        holder.bindViewHolder(listNote.get(position),mClickListener,position)
+    }
+
+    interface ItemClickListener{
+        fun itemClickListener(noteEntity: NoteEntity,position: Int)
     }
 }

@@ -18,6 +18,10 @@
 
     </style>
 
+    <style name="MyDialogTheme" parent="Theme.MaterialComponents.DayNight.Dialog.Alert">
+        <item name="colorPrimary">@color/colorNavyDark</item>
+    </style>
+
     <!--  BAGIAN FLOATING BUTTON  -->
     <style name="ShapeAppearance.App.SmallComponent.FloatingButton" parent="ShapeAppearance.MaterialComponents.SmallComponent">
         <item name="cornerSize">32dp</item>

@@ -33,7 +33,7 @@
             android:textColor="#000"
             android:ellipsize="end"
             android:inputType="none"
-            android:maxLines="4"/>
+            android:maxLines="3"/>
     </LinearLayout>
 
 </com.google.android.material.card.MaterialCardView>

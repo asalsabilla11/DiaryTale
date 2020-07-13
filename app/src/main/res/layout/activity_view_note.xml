@@ -5,53 +5,60 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".AddNoteActivity">
+    tools:context=".ViewNoteActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_addNote"
+        android:id="@+id/toolbar_viewNote"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPinkGelap"
         android:elevation="4dp"
-        app:title="Create note"
+        app:title="View Note"
         app:titleTextColor="@color/colorNavyDark"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_create_addNote"
+            android:id="@+id/btn_save_viewNote"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="18dp"
-            android:text="Create"
+            android:text="Save"
+            android:layout_gravity="end"
+            style="@style/Widget.App.Button.TextButton" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_delete_viewNote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete"
             android:layout_gravity="end"
             style="@style/Widget.App.Button.TextButton" />
     </androidx.appcompat.widget.Toolbar>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/etLayout_title_note"
+        android:id="@+id/etLayout_title_viewNote"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         app:boxBackgroundColor="@android:color/transparent"
         android:hint="Title"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_addNote">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_viewNote">
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_title_note"
+            android:id="@+id/et_title_viewNote"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"/>
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/etLayout_isi_note"
+        android:id="@+id/etLayout_isi_viewNote"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:boxBackgroundColor="@android:color/transparent"
         android:hint="Notes"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-        app:layout_constraintTop_toBottomOf="@+id/etLayout_title_note">
+        app:layout_constraintTop_toBottomOf="@+id/etLayout_title_viewNote">
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_isi_note"
+            android:id="@+id/et_isi_viewNote"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/transparent"/>

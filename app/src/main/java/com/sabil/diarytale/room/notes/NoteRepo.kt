@@ -29,12 +29,22 @@ class NoteRepo(app: Application): CoroutineScope {
     fun getAllNote() = noteDao?.getAllNote()
 
     fun deleteAllNote() = noteDao?.deleteAllData()
-    fun deletByID(noteID: String) = noteDao?.deleteByID(noteID)
+    fun deletByID(noteID: String) {
+        launch {
+            deleteByIDBackground(noteID)
+        }
+    }
 
 
     private suspend fun upsertBackground(noteEntity: NoteEntity){
         withContext(IO){
             noteDao?.upsert(noteEntity)
+        }
+    }
+
+    private suspend fun deleteByIDBackground(noteID: String){
+        withContext(IO){
+            noteDao?.deleteByID(noteID)
         }
     }
 
