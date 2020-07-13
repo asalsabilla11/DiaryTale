@@ -1,5 +1,6 @@
 package com.sabil.diarytale
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -10,29 +11,27 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-
-    lateinit var toolbar: Toolbar
-    lateinit var drawerLayout: DrawerLayout
-    lateinit var navView: NavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
+        setSupportActionBar(toolbar_main)
+        supportActionBar?.setTitle("Home")
 
-        drawerLayout = findViewById(R.id.drawer_layout)
-        navView = findViewById(R.id.nav_view)
-
-        val toggle = ActionBarDrawerToggle(
-            this, drawerLayout, toolbar, 0, 0
-        )
-        drawerLayout.addDrawerListener(toggle)
+        navview_home.bringToFront()
+        navview_home.setNavigationItemSelectedListener(this)
+        val toggle = ActionBarDrawerToggle(this,drawerLayout_home,toolbar_main,
+            R.string.openDrawerNavigation, R.string.closeDrawerNavigation)
+        drawerLayout_home.addDrawerListener(toggle)
         toggle.syncState()
-        navView.setNavigationItemSelectedListener(this)
+
+        btn_noteMenu_main.setOnClickListener {
+            startActivity(Intent(this,NoteActivity::class.java))
+        }
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -46,9 +45,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_share -> {
                 Toast.makeText(this, "Friends clicked", Toast.LENGTH_SHORT).show()
             }
-
         }
-        drawerLayout.closeDrawer(GravityCompat.START)
+        drawerLayout_home.closeDrawer(GravityCompat.START)
         return true
     }
 }

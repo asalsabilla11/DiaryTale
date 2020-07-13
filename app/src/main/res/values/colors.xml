@@ -9,4 +9,8 @@
     <color name="colorBackground">#808284</color>
     <color name="colorgrey">#939597</color>
     <color name="colorText">#43b3e6</color>
+
+    <color name="colorNavyDark">#3a4664</color>
+    <color name="colorPinkGelap">#eaa0a2</color>
+    <color name="colorPinkTerang">#ffdbdc</color>
 </resources>

@@ -2,4 +2,9 @@
     <string name="app_name">DiaryTale</string>
     <string name="sleep">Sleep</string>
     <string name="drink">Drink</string>
+    <string name="Money">Money</string>
+    <string name="Note">Note</string>
+
+    <string name="openDrawerNavigation">Open Drawer Navigation</string>
+    <string name="closeDrawerNavigation">Close Drawer Navigation</string>
 </resources>
