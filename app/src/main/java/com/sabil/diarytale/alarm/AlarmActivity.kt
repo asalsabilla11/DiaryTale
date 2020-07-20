@@ -1,19 +1,14 @@
-package com.sabil.diarytale
+package com.sabil.diarytale.alarm
 
-import android.app.TimePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.format.DateFormat
-import android.widget.CompoundButton
-import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.sabil.diarytale.R
 import com.sabil.diarytale.adapter.AlarmAdaper
 import com.sabil.diarytale.room.alarm.AlarmEntity
 import com.sabil.diarytale.room.alarm.AlarmViewModel
@@ -53,7 +48,8 @@ class AlarmActivity : AppCompatActivity() {
         }
 
         btn_addSleep_alarm.setOnClickListener {
-            startActivity(Intent(this,AddSleepRecordActivity::class.java))
+            startActivity(Intent(this,
+                AddSleepRecordActivity::class.java))
         }
 
         alarmViewModel.getAlarmData().observe(this, Observer<List<AlarmEntity>>{listAlarm->

@@ -1,4 +1,4 @@
-package com.sabil.diarytale
+package com.sabil.diarytale.alarm
 
 import android.content.Context
 import android.content.Intent
@@ -6,8 +6,9 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.format.DateFormat
+import com.sabil.diarytale.AlarmService
+import com.sabil.diarytale.R
 import kotlinx.android.synthetic.main.activity_add_sleep_record.*
-import kotlinx.android.synthetic.main.activity_alarm.*
 import java.util.*
 
 class AddSleepRecordActivity : AppCompatActivity() {
@@ -72,7 +73,7 @@ class AddSleepRecordActivity : AppCompatActivity() {
         editor.putInt("DURASI_MENIT",durasiMenit)
         editor.apply()
 
-        val serviceIntent = Intent(this,AlarmService::class.java)
+        val serviceIntent = Intent(this, AlarmService::class.java)
         startService(serviceIntent)
 
         super.onBackPressed()

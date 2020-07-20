@@ -1,4 +1,4 @@
-package com.sabil.diarytale
+package com.sabil.diarytale.alarm
 
 import android.app.Service
 import android.content.Intent

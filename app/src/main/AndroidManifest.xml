@@ -12,20 +12,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddSleepRecordActivity">
+        <activity android:name=".alarm.AddSleepRecordActivity">
         </activity>
-        <activity android:name=".AlarmActivity" />
+        <activity android:name=".alarm.AlarmActivity" />
         <activity
             android:name=".MoneyActivity"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".ViewNoteActivity"
-            android:parentActivityName=".NoteActivity" />
+            android:name=".note.ViewNoteActivity"
+            android:parentActivityName=".note.NoteActivity" />
         <activity
-            android:name=".AddNoteActivity"
-            android:parentActivityName=".NoteActivity" />
+            android:name=".note.AddNoteActivity"
+            android:parentActivityName=".note.NoteActivity" />
         <activity
-            android:name=".NoteActivity"
+            android:name=".note.NoteActivity"
             android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -36,8 +36,8 @@
         </activity>
 
         <service android:name=".AlarmService"/>
-        <service android:name=".AddRecordService"/>
-        <receiver android:name=".AlarmReceiver"
+        <service android:name=".alarm.AddRecordService"/>
+        <receiver android:name=".alarm.AlarmReceiver"
             android:exported="false"/>
     </application>
 

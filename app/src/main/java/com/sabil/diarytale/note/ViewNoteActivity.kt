@@ -1,4 +1,4 @@
-package com.sabil.diarytale
+package com.sabil.diarytale.note
 
 import android.content.DialogInterface
 import android.content.Intent
@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProviders
+import com.sabil.diarytale.R
 import com.sabil.diarytale.room.notes.NoteEntity
 import com.sabil.diarytale.room.notes.NoteViewModel
 import kotlinx.android.synthetic.main.activity_view_note.*
@@ -77,19 +78,23 @@ class ViewNoteActivity : AppCompatActivity() {
         val newTimestamp = Calendar.getInstance().timeInMillis / 1000L
         val newNote = NoteEntity(noteID_Extra!!,newTitle,newIsi,newTimestamp)
         noteViewModel.upset(newNote)
-        startActivity(Intent(this@ViewNoteActivity,NoteActivity::class.java))
+        startActivity(Intent(this@ViewNoteActivity,
+            NoteActivity::class.java))
         finish()
     }
 
     private fun showDialogDelete(){
-        val alertDialog = AlertDialog.Builder(this, R.style.MyDialogTheme)
+        val alertDialog = AlertDialog.Builder(this,
+            R.style.MyDialogTheme
+        )
         alertDialog.apply {
             this.setTitle("Delete Note")
             this.setMessage("Apakah anda yakin akan mengahapus note ini ?")
             this.setPositiveButton("Delete",object : DialogInterface.OnClickListener{
                 override fun onClick(p0: DialogInterface?, p1: Int) {
                     noteViewModel.deleteByID(noteID_Extra!!)
-                    startActivity(Intent(this@ViewNoteActivity,NoteActivity::class.java))
+                    startActivity(Intent(this@ViewNoteActivity,
+                        NoteActivity::class.java))
                     finish()
                 }
             })
@@ -103,7 +108,9 @@ class ViewNoteActivity : AppCompatActivity() {
     }
 
     private fun showDialogBack(){
-        val alertDialog = AlertDialog.Builder(this,R.style.MyDialogTheme)
+        val alertDialog = AlertDialog.Builder(this,
+            R.style.MyDialogTheme
+        )
         alertDialog.apply {
             this.setTitle("Not Saved")
             this.setMessage("Anda belum menyimpan perubahan, simpan atau buang?")

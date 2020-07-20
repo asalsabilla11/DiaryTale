@@ -10,6 +10,7 @@ import android.os.IBinder
 import android.text.format.DateFormat
 import androidx.core.app.NotificationCompat
 import com.sabil.diarytale.App.Companion.SERVICE_NOTIF
+import com.sabil.diarytale.alarm.AlarmReceiver
 import java.util.*
 
 class AlarmService:Service(){
@@ -32,7 +33,8 @@ class AlarmService:Service(){
             calWaktuBangun.timeInMillis = waktuBangun * 1000L
 
             val alarmManager = getSystemService(Context.ALARM_SERVICE) as? AlarmManager
-            val alarmIntent = Intent(this,AlarmReceiver::class.java).let {
+            val alarmIntent = Intent(this,
+                AlarmReceiver::class.java).let {
                 it.putExtra("WAKTU_TIDUR",waktuTidur)
                 PendingIntent.getBroadcast(this,1,it,PendingIntent.FLAG_UPDATE_CURRENT)
             }

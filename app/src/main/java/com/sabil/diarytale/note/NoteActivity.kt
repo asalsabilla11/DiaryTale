@@ -1,4 +1,4 @@
-package com.sabil.diarytale
+package com.sabil.diarytale.note
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,6 +6,8 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
+import com.sabil.diarytale.MainActivity
+import com.sabil.diarytale.R
 import com.sabil.diarytale.adapter.NoteAdapter
 import com.sabil.diarytale.room.notes.NoteEntity
 import com.sabil.diarytale.room.notes.NoteViewModel
@@ -45,13 +47,13 @@ class NoteActivity : AppCompatActivity(), NoteAdapter.ItemClickListener {
     }
 
     override fun onBackPressed() {
-        val intent = Intent(this,MainActivity::class.java)
+        val intent = Intent(this, MainActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
         startActivity(intent)
     }
 
     override fun itemClickListener(noteEntity: NoteEntity, position: Int) {
-        val intent = Intent(this,ViewNoteActivity::class.java)
+        val intent = Intent(this, ViewNoteActivity::class.java)
         intent.putExtra("NOTE_ID",noteEntity.noteID)
         intent.putExtra("NOTE_TITLE",noteEntity.noteTitle)
         intent.putExtra("NOTE_ISI",noteEntity.noteIsi)

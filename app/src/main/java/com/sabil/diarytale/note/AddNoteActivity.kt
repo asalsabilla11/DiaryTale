@@ -1,9 +1,10 @@
-package com.sabil.diarytale
+package com.sabil.diarytale.note
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProviders
+import com.sabil.diarytale.R
 import com.sabil.diarytale.room.notes.NoteEntity
 import com.sabil.diarytale.room.notes.NoteViewModel
 import kotlinx.android.synthetic.main.activity_add_note.*
@@ -57,6 +58,6 @@ class AddNoteActivity : AppCompatActivity() {
         val notes = NoteEntity(noteID,titleNote,isiNote,timestamp)
         mNoteViewModel.upset(notes)
         finish()
-        startActivity(Intent(this,NoteActivity::class.java))
+        startActivity(Intent(this, NoteActivity::class.java))
     }
 }

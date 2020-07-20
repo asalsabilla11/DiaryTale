@@ -8,6 +8,8 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
+import com.sabil.diarytale.alarm.AlarmActivity
+import com.sabil.diarytale.note.NoteActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -27,13 +29,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
 
         btn_noteMenu_main.setOnClickListener {
-            startActivity(Intent(this,NoteActivity::class.java))
+            startActivity(Intent(this, NoteActivity::class.java))
         }
         btn_moneyMenu_main.setOnClickListener {
             startActivity(Intent(this, MoneyActivity::class.java))
         }
         btn_sleepMenu_main.setOnClickListener {
-            startActivity(Intent(this,AlarmActivity::class.java))
+            startActivity(Intent(this, AlarmActivity::class.java))
         }
     }
 
