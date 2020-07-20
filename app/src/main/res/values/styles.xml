@@ -6,7 +6,7 @@
         <item name="colorPrimary">@color/colorNavyDark</item>
         <item name="colorPrimaryDark">@color/colorPinkGelap</item>
         <item name="colorOnSurface">@color/colorNavyDark</item>
-        <item name="colorAccent">#fff</item>
+        <item name="colorAccent">@color/colorPinkGelap</item>
 
         <item name="extendedFloatingActionButtonStyle">@style/Widget.App.ExtendedFloatingActionButton</item>
         <item name="floatingActionButtonStyle">@style/Widget.App.FloatingActionButton</item>
@@ -16,6 +16,13 @@
         <item name="materialButtonOutlinedStyle">@style/Widget.App.Button.OutlinedButton</item>
         <item name="materialButtonStyle">@style/Widget.App.Button</item>
 
+    </style>
+
+    <style name="TimePickerStyle" parent="">
+        <item name="colorPrimaryDark">@color/colorNavyDark</item>
+        <item name="colorPrimary">@color/colorNavyDark</item>
+        <item name="colorOnSurface">@color/colorNavyDark</item>
+        <item name="colorAccent">@color/colorNavyDark</item>
     </style>
 
     <style name="MyDialogTheme" parent="Theme.MaterialComponents.DayNight.Dialog.Alert">

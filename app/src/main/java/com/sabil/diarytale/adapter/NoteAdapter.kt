@@ -1,4 +1,4 @@
-package com.sabil.diarytale.room.adapter
+package com.sabil.diarytale.adapter
 
 import android.view.LayoutInflater
 import android.view.View

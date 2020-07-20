@@ -4,14 +4,20 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.sabil.diarytale.room.alarm.AlarmDao
+import com.sabil.diarytale.room.alarm.AlarmEntity
+import com.sabil.diarytale.room.bank.BankDao
+import com.sabil.diarytale.room.bank.BankEntity
 import com.sabil.diarytale.room.notes.NoteDao
 import com.sabil.diarytale.room.notes.NoteEntity
 
 
-@Database(entities = [NoteEntity::class],version = 1)
+@Database(entities = [NoteEntity::class, BankEntity::class, AlarmEntity::class],version = 4)
 abstract class DiaryTaleDB: RoomDatabase() {
 
     abstract val noteDao: NoteDao
+    abstract val bankDao: BankDao
+    abstract val alarmDao: AlarmDao
 
     companion object{
         @Volatile

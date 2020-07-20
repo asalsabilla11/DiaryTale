@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
-import com.sabil.diarytale.room.adapter.NoteAdapter
+import com.sabil.diarytale.adapter.NoteAdapter
 import com.sabil.diarytale.room.notes.NoteEntity
 import com.sabil.diarytale.room.notes.NoteViewModel
 import kotlinx.android.synthetic.main.activity_note.*
