@@ -14,4 +14,7 @@ interface AlarmDao {
 
     @Query("select * from alarm")
     fun getAlarmData(): LiveData<List<AlarmEntity>>
+
+    @Query("delete from alarm")
+    fun deleteAll()
 }

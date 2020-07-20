@@ -11,6 +11,8 @@ class AlarmViewModel(app: Application): AndroidViewModel(app) {
         repo.upsertAlarm(alarmEntity)
     }
 
+    fun deletAll() = repo.deletAll()
+
     fun getAlarmData() = repo.getAlarmData()
 
 }

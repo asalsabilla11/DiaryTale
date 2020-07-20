@@ -33,5 +33,17 @@ class AlarmRepo(app: Application):CoroutineScope {
         }
     }
 
+    fun deletAll(){
+        launch {
+            deletAllBG()
+        }
+    }
+
+    private suspend fun deletAllBG(){
+        withContext(IO){
+            alarmDao.deleteAll()
+        }
+    }
+
     fun getAlarmData() = alarmDao.getAlarmData()
 }

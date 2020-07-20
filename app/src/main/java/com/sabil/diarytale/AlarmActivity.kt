@@ -1,11 +1,22 @@
 package com.sabil.diarytale
 
 import android.app.TimePickerDialog
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.format.DateFormat
 import android.widget.CompoundButton
+import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.sabil.diarytale.adapter.AlarmAdaper
+import com.sabil.diarytale.room.alarm.AlarmEntity
+import com.sabil.diarytale.room.alarm.AlarmViewModel
 import kotlinx.android.synthetic.main.activity_alarm.*
 import java.util.*
 
@@ -14,10 +25,18 @@ class AlarmActivity : AppCompatActivity() {
     private lateinit var mCalendarBangun: Calendar
     private lateinit var mCalendarTidur: Calendar
 
+    private lateinit var alarmSharedPref: SharedPreferences
+
+    private lateinit var alarmViewModel: AlarmViewModel
+    private lateinit var alarmAdaper: AlarmAdaper
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_alarm)
 
+        alarmSharedPref = getSharedPreferences("ALARM", Context.MODE_PRIVATE)
+
+        alarmViewModel = ViewModelProviders.of(this).get(AlarmViewModel::class.java)
 
         // Init waktu tidur
         mCalendarTidur = Calendar.getInstance()
@@ -33,58 +52,42 @@ class AlarmActivity : AppCompatActivity() {
             set(Calendar.SECOND,0)
         }
 
-        btn_waktuTidur_alarm.setOnClickListener {
-            setWaktuTidur()
-        }
-        btn_waktuBangun_alarm.setOnClickListener {
-            setWaktuBangun()
+        btn_addSleep_alarm.setOnClickListener {
+            startActivity(Intent(this,AddSleepRecordActivity::class.java))
         }
 
-        btn_waktuTidur_alarm.text = DateFormat.format("HH:mm",mCalendarTidur).toString()
-        btn_waktuBangun_alarm.text = DateFormat.format("HH:mm",mCalendarBangun).toString()
-        setDurasiTidur()
-
-
-        sw_active_alarm.setOnCheckedChangeListener { compoundButton: CompoundButton, b: Boolean ->
-            when(b){
-                true-> Toast.makeText(this,"Switch On",Toast.LENGTH_SHORT).show()
-                else-> Toast.makeText(this,"Switch Off",Toast.LENGTH_SHORT).show()
+        alarmViewModel.getAlarmData().observe(this, Observer<List<AlarmEntity>>{listAlarm->
+            listAlarm.forEach {
+                println("data_alarm => $it")
             }
+        })
+
+        btn_deleteAll_alarm.setOnClickListener {
+            alarmViewModel.deletAll()
         }
+
     }
 
-    private fun setWaktuTidur(){
-        val timePickerDialog = TimePickerDialog(
-            this,
-            TimePickerDialog.OnTimeSetListener { timePicker, i, i2 ->
-                mCalendarTidur.set(Calendar.HOUR_OF_DAY,i)
-                mCalendarTidur.set(Calendar.MINUTE,i2)
-
-                btn_waktuTidur_alarm.text = DateFormat.format("HH:mm",mCalendarTidur).toString()
-                setDurasiTidur()
-            },
-            mCalendarTidur.get(Calendar.HOUR_OF_DAY),
-            mCalendarTidur.get(Calendar.MINUTE),
-            true
-        )
-        timePickerDialog.show()
+    override fun onStart() {
+        super.onStart()
+        getDataAlarm()
+        val durasiJam = alarmSharedPref.getInt("DURASI_JAM",0)
+        val durasiMenit = alarmSharedPref.getInt("DURASI_MENIT",0)
+        tv_jam_alarm.text = durasiJam.toString()
+        tv_menit_alarm.text = durasiMenit.toString()
     }
 
-    private fun setWaktuBangun(){
-        val timePickerDialog = TimePickerDialog(
-            this,
-            TimePickerDialog.OnTimeSetListener { timePicker, i, i2 ->
-                mCalendarBangun.set(Calendar.HOUR_OF_DAY,i)
-                mCalendarBangun.set(Calendar.MINUTE,i2)
+    private fun getDataAlarm(){
+        alarmViewModel.getAlarmData().observe(this,Observer<List<AlarmEntity>>{
+            setRecyclerView(it)
+        })
+    }
 
-                btn_waktuBangun_alarm.text = DateFormat.format("HH:mm",mCalendarBangun).toString()
-                setDurasiTidur()
-            },
-            mCalendarBangun.get(Calendar.HOUR_OF_DAY),
-            mCalendarBangun.get(Calendar.MINUTE),
-            true
-        )
-        timePickerDialog.show()
+    private fun setRecyclerView(alarmList: List<AlarmEntity>){
+        alarmAdaper = AlarmAdaper()
+        alarmAdaper.alarmAdapter(alarmList)
+        rv_resutlAlarm_alarm.layoutManager = LinearLayoutManager(this)
+        rv_resutlAlarm_alarm.adapter = alarmAdaper
     }
 
     private fun setDurasiTidur(){
