@@ -27,8 +27,10 @@ class AlarmService:Service(){
 
         val waktuBangun = alarmSharedPref.getLong("WAKTU_BANGUN",0L)
         val waktuTidur = alarmSharedPref.getLong("WAKTU_TIDUR",0L)
+        val durasiJam = alarmSharedPref.getInt("DURASI_JAM",0)
+        val durasiMenit = alarmSharedPref.getInt("DURASI_MENIT",0)
 
-        if(waktuBangun != 0L){
+        if(durasiJam != 0 || durasiMenit != 0){
             val calWaktuBangun = Calendar.getInstance()
             calWaktuBangun.timeInMillis = waktuBangun * 1000L
 

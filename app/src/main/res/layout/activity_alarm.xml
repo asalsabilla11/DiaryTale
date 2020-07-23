@@ -22,6 +22,13 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end">
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_stopAlarm_alarm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="stop"
+                android:textColor="@color/colorNavyDark"
+                style="@style/Widget.MaterialComponents.Button.TextButton"/>
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_addSleep_alarm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

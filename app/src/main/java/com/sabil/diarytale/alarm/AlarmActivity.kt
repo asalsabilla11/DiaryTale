@@ -5,9 +5,11 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.sabil.diarytale.AlarmService
 import com.sabil.diarytale.R
 import com.sabil.diarytale.adapter.AlarmAdaper
 import com.sabil.diarytale.room.alarm.AlarmEntity
@@ -58,6 +60,13 @@ class AlarmActivity : AppCompatActivity() {
             }
         })
 
+        btn_stopAlarm_alarm.setOnClickListener {
+            alarmSharedPref.edit().clear().apply()
+            setDuarasi()
+            val serviceIntent = Intent(this, AlarmService::class.java)
+            startService(serviceIntent)
+        }
+
         btn_deleteAll_alarm.setOnClickListener {
             alarmViewModel.deletAll()
         }
@@ -67,6 +76,10 @@ class AlarmActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         getDataAlarm()
+        setDuarasi()
+    }
+
+    private fun setDuarasi(){
         val durasiJam = alarmSharedPref.getInt("DURASI_JAM",0)
         val durasiMenit = alarmSharedPref.getInt("DURASI_MENIT",0)
         tv_jam_alarm.text = durasiJam.toString()
