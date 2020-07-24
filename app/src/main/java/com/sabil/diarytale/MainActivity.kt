@@ -37,6 +37,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         btn_sleepMenu_main.setOnClickListener {
             startActivity(Intent(this, AlarmActivity::class.java))
         }
+        btn_listMenu_main.setOnClickListener {
+            startActivity(Intent(this, com.sabil.diarytale.ListActivity::class.java))
+        }
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {

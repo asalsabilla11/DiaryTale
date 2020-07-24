@@ -8,16 +8,20 @@ import com.sabil.diarytale.room.alarm.AlarmDao
 import com.sabil.diarytale.room.alarm.AlarmEntity
 import com.sabil.diarytale.room.bank.BankDao
 import com.sabil.diarytale.room.bank.BankEntity
+import com.sabil.diarytale.room.list.ListDao
+import com.sabil.diarytale.room.list.ListEntity
 import com.sabil.diarytale.room.notes.NoteDao
 import com.sabil.diarytale.room.notes.NoteEntity
 
 
-@Database(entities = [NoteEntity::class, BankEntity::class, AlarmEntity::class],version = 4)
+@Database(entities = [NoteEntity::class, BankEntity::class, AlarmEntity::class,
+    ListEntity::class],version = 6)
 abstract class DiaryTaleDB: RoomDatabase() {
 
     abstract val noteDao: NoteDao
     abstract val bankDao: BankDao
     abstract val alarmDao: AlarmDao
+    abstract val listDao: ListDao
 
     companion object{
         @Volatile

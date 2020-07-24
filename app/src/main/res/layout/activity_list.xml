@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/wibu"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:context=".ListActivity">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPinkGelap"
+        android:elevation="4dp"
+        app:menu="@menu/nav_menu_list"
+        app:title="Todo List"
+        app:titleTextColor="@color/colorNavyDark"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/lin_today_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="12dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_list">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="Today"
+            android:textSize="25sp"
+            android:textColor="@color/colorNavyDark"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="18dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/lin_today_list">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="Up coming"
+            android:textSize="25sp"
+            android:textColor="@color/colorNavyDark"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_listUpcome_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="18dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true" />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPinkGelap"
+        android:elevation="4dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <HorizontalScrollView
+            android:id="@+id/hs_kategoriJam_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_besokPagi_list"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="Besok pagi"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorNavyDark"
+                    app:strokeColor="@color/colorNavyDark"
+                    android:onClick="kategoriWaktu" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_besokSore_list"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="Besok sore"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorNavyDark"
+                    app:strokeColor="@color/colorNavyDark"
+                    android:onClick="kategoriWaktu" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_hariApapun_list"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="Hari apapun"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorNavyDark"
+                    app:strokeColor="@color/colorNavyDark"
+                    android:onClick="kategoriWaktu" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_custom_list"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="Custum"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorNavyDark"
+                    app:strokeColor="@color/colorNavyDark"
+                    android:onClick="kategoriWaktu"/>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorNavyDark" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etLayout_title_addList"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Apa yang akan kamu lakukan.."
+                app:boxBackgroundColor="@color/colorPinkGelap"
+                app:boxStrokeColor="@color/colorNavyDark"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_addList_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageButton
+                android:id="@+id/btn_addList_list"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:background="@drawable/ic_baseline_add_circle_disable"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <!-- :nextFocusUp and :nextFocusLeft have been set to the id of this component
+    to prevent the dummy from receiving focus again -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical">
+
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/cb_listDone_listLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:theme="@style/yo"/>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tv_titleList_listLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="title list"
+            android:textSize="18sp"
+            android:textColor="@color/colorNavyDark"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/tv_waktuList_listLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:text="waktu list"
+            android:textColor="#fff"
+            android:background="@color/colorNavyDark"/>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/btn_deleteList_listLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_baseline_delete_24"/>
+
+</LinearLayout>

@@ -18,6 +18,14 @@
 
     </style>
 
+    <style name="CheckBoxTheme" parent="">
+        <item name="materialThemeOverlay">@style/yo</item>
+    </style>
+    <style name="yo">
+        <item name="colorAccent">@color/colorNavyDark</item>
+        <item name="colorPrimaryDark">@color/colorNavyDark</item>
+    </style>
+
     <style name="TimePickerStyle" parent="">
         <item name="colorPrimaryDark">@color/colorNavyDark</item>
         <item name="colorPrimary">@color/colorNavyDark</item>
