@@ -13,6 +13,7 @@ class App: Application() {
         const val SLEEP_NOTIF = "com.sabil.diarytale_sleep-notif"
         const val WAKEUP_NOTIF = "com.sabil.diarytale_wakeup-notif"
         const val SERVICE_NOTIF = "com.sabil.diarytale_service-notif"
+        const val DRINK_NOTIF = "com.sabil.diarytale_drink-notif"
     }
 
     override fun onCreate() {
@@ -32,14 +33,21 @@ class App: Application() {
                 "Wakeup Notification",
                 NotificationManager.IMPORTANCE_HIGH
             )
+            val drinkNotificationChannel = NotificationChannel(
+                DRINK_NOTIF,
+                "Drink Notification",
+                NotificationManager.IMPORTANCE_HIGH
+            )
             val serviceNotificationChannel = NotificationChannel(
                 SERVICE_NOTIF,
                 "Service Notification",
                 NotificationManager.IMPORTANCE_LOW
             )
+
             val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             notificationManager.createNotificationChannel(sleepNotificationChannel)
             notificationManager.createNotificationChannel(wakeupNotificationChannel)
+            notificationManager.createNotificationChannel(drinkNotificationChannel)
             notificationManager.createNotificationChannel(serviceNotificationChannel)
         }
     }

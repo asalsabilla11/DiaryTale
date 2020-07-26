@@ -9,7 +9,9 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
 import com.sabil.diarytale.alarm.AlarmActivity
+import com.sabil.diarytale.drink.DrinkActivity
 import com.sabil.diarytale.note.NoteActivity
+import com.sabil.diarytale.list.ListActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -38,7 +40,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             startActivity(Intent(this, AlarmActivity::class.java))
         }
         btn_listMenu_main.setOnClickListener {
-            startActivity(Intent(this, com.sabil.diarytale.ListActivity::class.java))
+            startActivity(Intent(this, ListActivity::class.java))
+        }
+        btn_drinkMenu_main.setOnClickListener {
+            startActivity(Intent(this,DrinkActivity::class.java))
         }
     }
 

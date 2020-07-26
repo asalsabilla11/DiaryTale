@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".drink.DrinkActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_drink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="4dp"
+        android:background="@color/colorPinkGelap"
+        app:title="Drink Reminder"
+        app:titleTextColor="@color/colorNavyDark"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_targetDrink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Target 8x Sehari"
+        android:textSize="24sp"
+        android:textColor="@color/colorNavyDark"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_drink"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_startReminder_drink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:backgroundTint="@color/colorNavyDark"
+        android:text="Start Reminder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_targetDrink" />
+
+    <TextView
+        android:id="@+id/tv_drinkRecord_drink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="12dp"
+        android:text="Drink Record:"
+        android:textSize="18sp"
+        android:textColor="@color/colorNavyDark"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/btn_startReminder_drink"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_drinkRecord_drink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_drinkRecord_drink"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

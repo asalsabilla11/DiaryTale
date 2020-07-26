@@ -18,6 +18,9 @@
             android:name=".MoneyActivity"
             android:parentActivityName=".MainActivity" />
         <activity
+            android:name=".drink.DrinkActivity"
+            android:parentActivityName=".MainActivity"/>
+        <activity
             android:name=".note.ViewNoteActivity"
             android:parentActivityName=".note.NoteActivity" />
         <activity
@@ -26,7 +29,7 @@
         <activity
             android:name=".note.NoteActivity"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".ListActivity"/>
+        <activity android:name=".list.ListActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -41,6 +44,8 @@
         <receiver
             android:name=".alarm.AlarmReceiver"
             android:exported="false" />
+        <receiver android:name=".DrinkReceiver"
+            android:exported="false"/>
     </application>
 
 </manifest>

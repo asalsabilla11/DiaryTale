@@ -1,4 +1,4 @@
-package com.sabil.diarytale
+package com.sabil.diarytale.list
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.sabil.diarytale.R
 import com.sabil.diarytale.adapter.TodoListAdapter
 import com.sabil.diarytale.adapter.UpComeListAdapter
 import com.sabil.diarytale.room.list.ListEntity
@@ -93,10 +94,10 @@ class ListActivity : AppCompatActivity(), TodoListAdapter.ItemClickListener,UpCo
 
         toolbar_list.setOnMenuItemClickListener {
             when(it.itemId){
-                R.id.deleteAllDoneList_listMenu->{
+                R.id.deleteAllDoneList_listMenu ->{
                     listViewModel.listDeleteAllDone()
                 }
-                R.id.deleteAllList_listMenu->{
+                R.id.deleteAllList_listMenu ->{
                     listViewModel.listDeleteAll()
                 }
             }
