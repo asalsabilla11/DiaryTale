@@ -36,6 +36,5 @@ class NutritionViewActivity : AppCompatActivity() {
                 rv_nutrition_nutritionView.layoutManager = GridLayoutManager(this,2)
                 rv_nutrition_nutritionView.adapter = nutritionAdapter
             })
-
     }
 }
