@@ -14,10 +14,12 @@ import com.sabil.diarytale.room.list.ListDao
 import com.sabil.diarytale.room.list.ListEntity
 import com.sabil.diarytale.room.notes.NoteDao
 import com.sabil.diarytale.room.notes.NoteEntity
+import com.sabil.diarytale.room.nutrition.NutritionDao
+import com.sabil.diarytale.room.nutrition.NutritionEntity
 
 
 @Database(entities = [NoteEntity::class, BankEntity::class, AlarmEntity::class,
-    ListEntity::class, DrinkEntity::class],version = 7)
+    ListEntity::class, DrinkEntity::class, NutritionEntity::class],version = 10)
 abstract class DiaryTaleDB: RoomDatabase() {
 
     abstract val noteDao: NoteDao
@@ -25,6 +27,7 @@ abstract class DiaryTaleDB: RoomDatabase() {
     abstract val alarmDao: AlarmDao
     abstract val listDao: ListDao
     abstract val drinkDao: DrinkDao
+    abstract val nutritionDao: NutritionDao
 
     companion object{
         @Volatile

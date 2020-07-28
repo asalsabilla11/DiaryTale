@@ -48,7 +48,7 @@
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/btn_drinkMenu_main"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="150dp"
                     android:layout_margin="8dp"
                     app:cardElevation="2dp"
                     app:cardBackgroundColor="@color/colorPinkTerang"
@@ -80,7 +80,7 @@
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/btn_noteMenu_main"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="150dp"
                     android:layout_margin="8dp"
                     app:cardElevation="2dp"
                     android:clickable="true"
@@ -111,7 +111,7 @@
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/btn_listMenu_main"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="150dp"
                     android:layout_margin="8dp"
                     app:cardElevation="2dp"
                     android:clickable="true"
@@ -152,7 +152,7 @@
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/btn_sleepMenu_main"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="150dp"
                     android:layout_margin="8dp"
                     app:cardElevation="2dp"
                     app:cardBackgroundColor="@color/colorPinkTerang"
@@ -184,7 +184,7 @@
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/btn_moneyMenu_main"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="150dp"
                     android:layout_margin="8dp"
                     app:cardElevation="2dp"
                     android:clickable="true"
@@ -216,7 +216,7 @@
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/btn_nutrisiMenu_main"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="150dp"
                     android:layout_margin="8dp"
                     app:cardElevation="2dp"
                     android:clickable="true"
@@ -234,7 +234,7 @@
                         <ImageView
                             android:layout_width="64dp"
                             android:layout_height="64dp"
-                            android:background="@drawable/ic_money"
+                            android:background="@drawable/ic_baseline_fastfood_24"
                             android:contentDescription="@string/Money" />
 
                         <TextView

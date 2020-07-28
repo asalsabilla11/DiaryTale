@@ -3,6 +3,7 @@
     package="com.sabil.diarytale">
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".App"
@@ -12,14 +13,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".nutrition.NutritionViewActivity"
+            android:parentActivityName=".nutrition.NutritionActivity"/>
         <activity android:name=".alarm.AddSleepRecordActivity" />
         <activity android:name=".alarm.AlarmActivity" />
+
+        <activity
+            android:name=".nutrition.NutritionActivity"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".MoneyActivity"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".drink.DrinkActivity"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".note.ViewNoteActivity"
             android:parentActivityName=".note.NoteActivity" />
@@ -44,8 +52,9 @@
         <receiver
             android:name=".alarm.AlarmReceiver"
             android:exported="false" />
-        <receiver android:name=".DrinkReceiver"
-            android:exported="false"/>
+        <receiver
+            android:name=".DrinkReceiver"
+            android:exported="false" />
     </application>
 
 </manifest>

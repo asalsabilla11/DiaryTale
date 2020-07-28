@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:layout_marginEnd="4dp"
+    android:layout_marginStart="4dp"
+    android:layout_marginBottom="8dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/transparent">
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="2dp">
+        <ImageView
+            android:id="@+id/imageKategori_katNusLayout"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/salmon"/>
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/namaKategori_katNusLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calcium"
+        android:textColor="@color/colorNavyDark"
+        android:textStyle="bold"
+        android:textSize="16sp"/>
+
+</LinearLayout>

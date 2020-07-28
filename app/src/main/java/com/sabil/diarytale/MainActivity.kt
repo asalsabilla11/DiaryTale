@@ -12,6 +12,7 @@ import com.sabil.diarytale.alarm.AlarmActivity
 import com.sabil.diarytale.drink.DrinkActivity
 import com.sabil.diarytale.note.NoteActivity
 import com.sabil.diarytale.list.ListActivity
+import com.sabil.diarytale.nutrition.NutritionActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -44,6 +45,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
         btn_drinkMenu_main.setOnClickListener {
             startActivity(Intent(this,DrinkActivity::class.java))
+        }
+        btn_nutrisiMenu_main.setOnClickListener {
+            startActivity(Intent(this,
+                NutritionActivity::class.java))
         }
     }
 
