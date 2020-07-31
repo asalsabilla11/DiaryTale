@@ -33,11 +33,13 @@ class AlarmService:Service(){
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         println("service => running")
 
+        //alarm
         val waktuBangun = alarmSharedPref.getLong("WAKTU_BANGUN",0L)
         val waktuTidur = alarmSharedPref.getLong("WAKTU_TIDUR",0L)
         val durasiJam = alarmSharedPref.getInt("DURASI_JAM",0)
         val durasiMenit = alarmSharedPref.getInt("DURASI_MENIT",0)
 
+        //drink
         val drinkLoop = drinkSharedPref.getInt("DRINK_LOOP",0)
         val mServiceRunning = drinkSharedPref.getBoolean("SERVICE",false)
 
@@ -45,6 +47,7 @@ class AlarmService:Service(){
             stopSelf()
         }
         else{
+            // Alarm
             if(durasiJam != 0 || durasiMenit != 0){
                 val calWaktuBangun = Calendar.getInstance()
                 calWaktuBangun.timeInMillis = waktuBangun * 1000L
@@ -69,9 +72,14 @@ class AlarmService:Service(){
             val currentDate = Calendar.getInstance()
             currentDate.timeInMillis = drinkTanggal * 1000
             currentDate.add(Calendar.HOUR_OF_DAY,2)
+//            currentDate.add(Calendar.SECOND,10)
 
             if(drinkLoop == 0){
                 currentDate.add(Calendar.DATE,1)
+                val editor = drinkSharedPref.edit()
+                editor.putInt("DRINK_LOOP",8)
+                editor.putLong("TANGGAL",currentDate.timeInMillis / 1000)
+                editor.apply()
             }
 
             val drinkAlarmManager = getSystemService(Context.ALARM_SERVICE) as? AlarmManager
@@ -95,12 +103,6 @@ class AlarmService:Service(){
         }
 
         return START_NOT_STICKY
-    }
-
-    override fun onDestroy() {
-        val drinkLoop = drinkSharedPref.getInt("DRINK_LOOP",0)
-
-        super.onDestroy()
     }
 
     override fun onBind(p0: Intent?): IBinder? {

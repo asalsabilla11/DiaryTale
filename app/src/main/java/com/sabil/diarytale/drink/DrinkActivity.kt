@@ -48,14 +48,14 @@ class DrinkActivity : AppCompatActivity() {
                 limitDay.set(Calendar.MINUTE,0)
                 limitDay.set(Calendar.SECOND,0)
 
-                if(currentDay.timeInMillis / 1000 > limitDay.timeInMillis / 1000){
-                    currentDay.add(Calendar.DATE,1)
-                }
-                else{
-                    currentDay.set(Calendar.HOUR_OF_DAY,5)
-                    currentDay.set(Calendar.MINUTE,0)
-                    currentDay.set(Calendar.SECOND,0)
-                }
+//                if(currentDay.timeInMillis / 1000 > limitDay.timeInMillis / 1000){
+//                    currentDay.add(Calendar.DATE,1)
+//                }
+//                else{
+//                    currentDay.set(Calendar.HOUR_OF_DAY,5)
+//                    currentDay.set(Calendar.MINUTE,0)
+//                    currentDay.set(Calendar.SECOND,0)
+//                }
 
                 editor.putInt("DRINK_LOOP",8)
                 editor.putInt("DRINK_TOTAL",0)
