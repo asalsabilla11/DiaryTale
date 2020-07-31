@@ -25,7 +25,7 @@ class BankAdapter:RecyclerView.Adapter<BankAdapter.ViewHolder>() {
             tv_bankDesc.text = bankEntity.bankDesc
             tv_bankNominal.text = String.format("%,d",bankEntity.bankNominal)
             val timestamp = Calendar.getInstance()
-            timestamp.timeInMillis = bankEntity.timestamp
+            timestamp.timeInMillis = bankEntity.timestamp * 1000
             tv_timestamp.text = DateFormat.format("d MMM yyyy",timestamp).toString()
             val type: String
             if(bankEntity.type == "in"){
