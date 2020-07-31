@@ -7,8 +7,8 @@ class NutritionViewModel(app: Application): AndroidViewModel(app) {
 
     private var repo = NutritionRepo(app)
 
-    fun upsertNutrition(nutritionEntity: NutritionEntity)
-            = repo.upsertNutrition(nutritionEntity)
+    fun upsertNutrition(nutrisiList: List<NutritionEntity>)
+            = repo.upsertNutrition(nutrisiList)
 
     fun getNutrition(nutritionKategori: String)
             = repo.getNutrition(nutritionKategori)

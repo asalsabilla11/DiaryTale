@@ -21,14 +21,14 @@ class NutritionRepo(app: Application): CoroutineScope {
     }
 
 
-    fun upsertNutrition(nutritionEntity: NutritionEntity){
+    fun upsertNutrition(nutrisiList: List<NutritionEntity>){
         launch {
-            upsertNutritionBG(nutritionEntity)
+            upsertNutritionBG(nutrisiList)
         }
     }
-    private suspend fun upsertNutritionBG(nutritionEntity: NutritionEntity){
+    private suspend fun upsertNutritionBG(nutrisiList: List<NutritionEntity>){
         withContext(IO){
-            nutrisiDao.upsert(nutritionEntity)
+            nutrisiDao.upsert(nutrisiList)
         }
     }
 

@@ -4,10 +4,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="200dp"
-    android:background="#4CAF50"
+    android:background="@drawable/background"
     android:orientation="vertical"
     android:gravity="bottom"
-    android:paddingLeft="15dp"
+    android:paddingStart="15dp"
+    android:paddingEnd="15dp"
     android:paddingBottom="15dp">
 
     <ImageView
@@ -20,14 +21,16 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Title"
-        android:textColor="#FFFFFF"
+        android:text="Diary Tale"
+        android:textSize="25sp"
+        android:textColor="@color/colorNavyDark"
         android:textStyle="bold"/>
 
     <TextView
+        android:id="@+id/vertion_app_navdraw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="This is our navigation drawer"
-        android:textColor="#FFFFFF"/>
+        android:textColor="@color/colorNavyDark"/>
 
 </LinearLayout>

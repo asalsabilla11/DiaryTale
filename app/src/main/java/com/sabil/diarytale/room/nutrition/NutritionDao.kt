@@ -11,7 +11,7 @@ import androidx.room.Query
 interface NutritionDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun upsert(nutrisiEntity: NutritionEntity)
+    fun upsert(nutrisiList: List<NutritionEntity>)
 
     @Query("select * from nutrisi where nutrisiKategori = :nutrisiKategori")
     fun getNutrition(nutrisiKategori: String): LiveData<List<NutritionEntity>>

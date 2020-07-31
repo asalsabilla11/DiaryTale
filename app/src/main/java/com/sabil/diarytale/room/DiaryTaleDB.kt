@@ -19,7 +19,7 @@ import com.sabil.diarytale.room.nutrition.NutritionEntity
 
 
 @Database(entities = [NoteEntity::class, BankEntity::class, AlarmEntity::class,
-    ListEntity::class, DrinkEntity::class, NutritionEntity::class],version = 10)
+    ListEntity::class, DrinkEntity::class, NutritionEntity::class],version = 11)
 abstract class DiaryTaleDB: RoomDatabase() {
 
     abstract val noteDao: NoteDao

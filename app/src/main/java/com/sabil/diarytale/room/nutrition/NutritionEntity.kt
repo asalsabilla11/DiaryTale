@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "nutrisi")
 data class NutritionEntity(
     @PrimaryKey
-    val nutrisiID: String,
+    val nutrisiID: Int,
     val nutrisiNama: String,
     val nutrisiImage: String,
     val nutrisiKategori: String
